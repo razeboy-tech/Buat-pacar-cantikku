@@ -197,6 +197,7 @@ body {
     padding: 15px;
     cursor: pointer;
     animation: notificationIn 1s ease forwards;
+    transition: transform .15s ease;
 }
 
 .notification:active {
@@ -323,6 +324,11 @@ body {
     top: 63px;
     font-size: 25px;
     color: #777;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
 }
 
 .contact {
@@ -527,6 +533,12 @@ body {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: .4px;
+    cursor: pointer;
+    transition: transform .15s ease;
+}
+
+.card-button:active {
+    transform: scale(.97);
 }
 
 /* =========================
@@ -559,6 +571,588 @@ body {
     font-size: 9px;
     letter-spacing: 3px;
     opacity: .4;
+    margin-bottom: 18px;
+}
+
+.final-screen h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.final-screen p {
+    font-size: 12px;
+    line-height: 1.8;
+    opacity: .65;
+}
+
+.final-heart {
+    margin-top: 25px;
+    font-size: 22px;
+    opacity: .8;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes notificationIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes messageIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typing {
+    0%,100% {
+        transform: translateY(0);
+        opacity: .4;
+    }
+
+    50% {
+        transform: translateY(-3px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes finalUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-height: 700px) {
+
+    .phone {
+        height: 94vh;
+    }
+
+    .lock-time {
+        top: 100px;
+        font-size: 62px;
+    }
+
+    .notification {
+        top: 245px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .phone {
+        border-width: 5px;
+        border-radius: 42px;
+    }
+
+    .screen {
+        border-radius: 38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+<div class="screen">
+
+<!-- =========================
+     DYNAMIC ISLAND
+========================= -->
+
+<div class="dynamic-island"></div>
+
+
+<!-- =========================
+     STATUS BAR
+========================= -->
+
+<div class="status-bar">
+
+    <span id="statusTime">22:13</span>
+
+    <div class="status-icons">
+
+        <div class="signal">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="wifi">⌁</div>
+
+        <div class="battery"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     LOCK SCREEN
+========================= -->
+
+<section class="lock-screen" id="lockScreen">
+
+    <div class="lock-date" id="lockDate">
+        Thursday, October 1
+    </div>
+
+    <div class="lock-time" id="lockTime">
+        22:13
+    </div>
+
+
+    <div class="notification" id="notification">
+
+        <div class="notification-head">
+
+            <div class="notification-icon">
+                
+            </div>
+
+            <div class="notification-app">
+                Messages
+            </div>
+
+            <div class="notification-now">
+                now
+            </div>
+
+        </div>
+
+        <div class="notification-title">
+            Brian
+        </div>
+
+        <div class="notification-text">
+            Sayang, I owe you an apology.
+        </div>
+
+        <div class="notification-hint">
+            tap to open
+        </div>
+
+    </div>
+
+
+    <div class="lock-bottom">
+
+        <div class="lock-circle">
+            ⌁
+        </div>
+
+        <div class="lock-circle">
+            ⌂
+        </div>
+
+    </div>
+
+
+    <div class="swipe-line"></div>
+
+</section>
+
+
+<!-- =========================
+     MESSAGES
+========================= -->
+
+<section class="messages" id="messages">
+
+    <div class="messages-header">
+
+        <div class="back" id="backButton">
+            ‹
+        </div>
+
+        <div class="contact">
+
+            <div class="contact-avatar">
+                J
+            </div>
+
+            <div class="contact-name">
+                Mon chéri
+            </div>
+
+            <div class="contact-status">
+                iMessage
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="chat" id="chat">
+
+        <div class="day">
+            TODAY • 22:13
+        </div>
+
+    </div>
+
+
+    <div class="input-area">
+
+        <div class="input-box">
+            iMessage
+        </div>
+
+        <button class="send-button">
+            ↑
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         APOLOGY POPUP
+    ========================= -->
+
+    <div class="apology-card" id="apologyCard">
+
+        <div class="card">
+
+            <div class="card-symbol">
+                ♡
+            </div>
+
+            <h1>
+                I'm really sorry.
+            </h1>
+
+            <p>
+                I know saying sorry doesn't magically fix
+                everything. I just wanted you to know that
+                I mean it.
+            </p>
+
+            <button class="card-button" id="continueButton">
+                KEEP READING
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL SCREEN
+========================= -->
+
+<section class="final-screen" id="finalScreen">
+
+    <div class="final-content">
+
+        <div class="final-small">
+            ONE LAST THING
+        </div>
+
+        <h2>
+            I’m sorry, sayang.
+        </h2>
+
+        <p>
+            I don't expect you to forget it.<br>
+            I just hope you know<br>
+            how genuinely sorry I am.
+        </p>
+
+        <div class="final-heart">
+            ♡
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   REAL-TIME CLOCK
+========================================== */
+
+function updateClock() {
+
+    const now = new Date();
+
+    const hours =
+        String(now.getHours()).padStart(2, "0");
+
+    const minutes =
+        String(now.getMinutes()).padStart(2, "0");
+
+    const time = `${hours}:${minutes}`;
+
+    document.getElementById("lockTime").textContent = time;
+
+    document.getElementById("statusTime").textContent = time;
+
+    document.getElementById("lockDate").textContent =
+        now.toLocaleDateString("en-US", {
+            weekday: "long",
+            month: "long",
+            day: "numeric"
+        });
+}
+
+updateClock();
+
+setInterval(updateClock, 1000);
+
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const lockScreen =
+    document.getElementById("lockScreen");
+
+const notification =
+    document.getElementById("notification");
+
+const messages =
+    document.getElementById("messages");
+
+const chat =
+    document.getElementById("chat");
+
+const apologyCard =
+    document.getElementById("apologyCard");
+
+const continueButton =
+    document.getElementById("continueButton");
+
+const finalScreen =
+    document.getElementById("finalScreen");
+
+const backButton =
+    document.getElementById("backButton");
+
+
+/* ==========================================
+   CONVERSATION
+========================================== */
+
+const conversation = [
+
+    {
+        type: "me",
+        text: "Sayang."
+    },
+
+    {
+        type: "me",
+        text: "I've been thinking about what happened."
+    },
+
+    {
+        type: "me",
+        text: "And yeah... I owe you an apology."
+    },
+
+    {
+        type: "me",
+        text: "I know I messed up."
+    },
+
+    {
+        type: "me",
+        text: "I could give you a hundred explanations, but honestly, none of them would change the fact that I hurt you."
+    },
+
+    {
+        type: "me",
+        text: "So I'm not gonna make excuses for it."
+    },
+
+    {
+        type: "me",
+        text: "I'm just gonna say what I should've said from the start."
+    },
+
+    {
+        type: "me",
+        text: "I'm sorry."
+    },
+
+    {
+        type: "me",
+        text: "Not the casual 'sorry' people throw around just to end an argument."
+    },
+
+    {
+        type: "me",
+        text: "I genuinely mean it."
+    },
+
+    {
+        type: "me",
+        text: "You matter to me, sayang."
+    },
+
+    {
+        type: "me",
+        text: "And the last thing I want is for something I did to make you feel otherwise."
+    },
+
+    {
+        type: "me",
+        text: "I can't promise I'll never make mistakes again."
+    },
+
+    {
+        type: "me",
+        text: "But I can promise I'll try harder to understand, listen, and do better."
+    },
+
+    {
+        type: "me",
+        text: "You deserve that from me."
+    },
+
+    {
+        type: "me",
+        text: "So... yeah."
+    },
+
+    {
+        type: "me",
+        text: "I'm sorry, sayang."
+    },
+
+    {
+        type: "me",
+        text: "I really am."
+    }
+
+];
+
+
+/* ==========================================
+   OPEN MESSAGES
+========================================== */
+
+notification.addEventListener("click", function() {
+
+    lockScreen.classList.add("hidden");
+
+    setTimeout(function() {
+
+        messages.classList.add("active");
+
+        startConversation();
+
+    }, 450);
+
+});
+
+
+/* ==========================================
+   TYPING INDICATOR
+========================================== */
+
+function showTyping() {
+
+    const existingTyping =
+        document.getElementById("typing");
+
+    if (existingTyping) return;
+
+    const typing =
+        document.createElement("div");
+
+    typing.className = "typing";
+    typing.id = "typing";
+
+    typing.innerHTML = `
+        <span></span>
+        <span></span>
+        <span></span>
+    `;
+
+    chat.appendChild(typing);
+
+    scrollChat();
+}
+
+
+function hideTyping() {
+
+    const typing =
+        document.getElementById("typing");
+
+    if (typing) {
+        typing.remove();
+    }
+
+}
+
+
+/* ==========================================
+   ADD MESSAGE
+========================================== */
+
+function addMessage(message) {
+
+    return new Promise(function(resolve) {
+
+        showTyping();
+
+        setTimeout(function() {
+
+            hideTyping();
+
+            const bubble =
+                document.createElement("div");
+
+            bubble.className =
+         opacity: .4;
     margin-bottom: 18px;
 }
 
